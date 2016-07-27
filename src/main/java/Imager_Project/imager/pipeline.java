@@ -46,41 +46,41 @@ public class pipeline {
 			System.out.println("An IO Exception was thrown");
 		}
 		
-		imgFilter pro = new imgFilter(imgToProcess);
-		AttrProbList subList = pro.filter();
-		netOutput out = net.test(subList);
-		model determined = space.think(out);
-		
-		
-		System.out.println("Is the the Image for training (1) or processing (2)");
-		String userChoice = reader.nextLine();
-		System.out.println(userChoice);
-		if (userChoice.contentEquals("1"))
-		{
-			System.out.println("Please enter what is in the image: ");
-			String imgContent = reader.nextLine();
-			
-			model subject;
-			subject = space.findModel(imgContent);
-			
-			if("not found".equals(subject.getName()))
-			{
-				space.addModel(new model(imgContent));	
-				net.firstProp(determined );
-				System.out.println(determined.getName());
-			}
-			else 
-			{
-				net.backProp(determined, subject);
-			}
-			
-		}
-		else if (userChoice.contentEquals("2"))
-		{
-			System.out.println("The program determined the image to be: "+determined.getName());
-		} else {
-			System.out.println("Nothing");
-		}
+//		imgFilter pro = new imgFilter(imgToProcess);
+//		attribute subList = pro.filter();
+//		netOutput out = net.test(subList);
+//		model determined = space.think(out);
+//		
+//		
+//		System.out.println("Is the the Image for training (1) or processing (2)");
+//		String userChoice = reader.nextLine();
+//		System.out.println(userChoice);
+//		if (userChoice.contentEquals("1"))
+//		{
+//			System.out.println("Please enter what is in the image: ");
+//			String imgContent = reader.nextLine();
+//			
+//			model subject;
+//			subject = space.findModel(imgContent);
+//			
+//			if("not found".equals(subject.getName()))
+//			{
+//				space.addModel(new model(imgContent));	
+//				net.firstProp(determined );
+//				System.out.println(determined.getName());
+//			}
+//			else 
+//			{
+//				net.backProp(determined, subject);
+//			}
+//			
+//		}
+//		else if (userChoice.contentEquals("2"))
+//		{
+//			System.out.println("The program determined the image to be: "+determined.getName());
+//		} else {
+//			System.out.println("Nothing");
+//		}
 		
 		reader.close();
 	}

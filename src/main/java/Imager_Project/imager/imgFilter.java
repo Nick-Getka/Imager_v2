@@ -12,6 +12,11 @@ public class imgFilter {
 	private BufferedImage imgToPro;
 	
 	//Constructors
+	public imgFilter()
+	{
+		super();
+		this.imgToPro = null;
+	}
 	public imgFilter(BufferedImage img)
 	{
 		super();
@@ -22,15 +27,7 @@ public class imgFilter {
 	public BufferedImage getImgToPro() {return imgToPro;}
 	public void setImgToPro(BufferedImage imgToPro) {this.imgToPro = imgToPro;}
 	
-	public AttrProbList filter(){
-		//Temporary values
-		AttrProbList temp = new AttrProbList();
-		temp.add("blue", .1);
-		temp.add("large", .2);
-		temp.add("high", .3);
-		temp.add("low", .7);
-		temp.add("green", .5);
-		
-		return temp;
+	public attribute filter(){
+		return new attribute();
 	}
 }

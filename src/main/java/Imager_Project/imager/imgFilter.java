@@ -1,6 +1,5 @@
 package Imager_Project.imager;
 
-import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 

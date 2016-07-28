@@ -1,7 +1,6 @@
 package Imager_Project.imager;
 
 import java.util.HashMap;
-import java.util.Set;
 
 public class attrHash {
 	HashMap<String, Double> hmap = new HashMap<String, Double>();

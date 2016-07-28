@@ -46,6 +46,10 @@ public class pipeline {
 			System.out.println("An IO Exception was thrown");
 		}
 		
+		attrHash globalHash = new attrHash();
+		imgFilter pro = new imgFilter(imgToProcess);
+		globalHash.mergeHash(pro.rgbFilter());
+		
 //		imgFilter pro = new imgFilter(imgToProcess);
 //		attribute subList = pro.filter();
 //		netOutput out = net.test(subList);

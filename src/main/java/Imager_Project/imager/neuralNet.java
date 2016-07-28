@@ -3,7 +3,7 @@ package Imager_Project.imager;
 //This class will be a wrapper for the open source Neuroph Neural Net
 public class neuralNet {
 	
-	public netOutput test(AttrProbList a)
+	public netOutput test(attrHash a)
 	{
 		netOutput t = new netOutput();
 		return t;

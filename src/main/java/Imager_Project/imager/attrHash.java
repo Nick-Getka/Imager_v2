@@ -1,6 +1,7 @@
 package Imager_Project.imager;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class attrHash {
 	HashMap<String, Double> hmap = new HashMap<String, Double>();
@@ -38,7 +39,14 @@ public class attrHash {
 					//the filters return 2
 		}
 	}
-	
+	public void mergeHash(attrHash sec){
+		HashMap<String,Double> temp = new HashMap<String,Double>();
+		temp.putAll(hmap);
+		temp.putAll(sec.getHmap());
+		
+		hmap.clear();
+		hmap.putAll(temp);
+	}
 	
 	
 }

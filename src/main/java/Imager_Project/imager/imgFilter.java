@@ -44,22 +44,30 @@ public class imgFilter {
 	    int bCount = 0;
 	    int gCount = 0;
 	    
-	    for(int y =0; y < h; h++)
+	    for(int y =0; y < h; y++)
 	    {
-	    	for(int x =0; x < w; w++)
+	    	for(int x =0; x < w; x++)
 	    	{
 	    		int clr = imgToPro.getRGB(x,y); 
 	    		int rVal = (clr & 0x00ff0000) >> 16;
 	    		int gVal = (clr & 0x0000ff00) >> 8;
 	    	    int bVal =  clr & 0x000000ff;
 	    	    
+	    	    System.out.println("clr: " + clr);
+	    	    System.out.println("rVal: " + rVal);
+	    	    System.out.println("gVal: " + gVal);
+	    	    System.out.println("bVal: " + bVal);
+	    	    
 	    	    if(rVal > gVal && rVal > bVal){
+	    	    	System.out.println("rCount added");
 	    	    	rCount++;
 	    	    }
 	    	    else if(bVal > gVal && bVal > rVal){
+	    	    	System.out.println("bCount added");
 	    	    	bCount++;
 	    	    }
 	    	    else if(gVal > bVal && gVal >rVal){
+	    	    	System.out.println("gCount added");
 	    	    	gCount++;
 	    	    }
 	    	}
@@ -69,6 +77,10 @@ public class imgFilter {
 		red.setProb(rCount/total);
 		blue.setProb(bCount/total);
 		green.setProb(gCount/total);
+		
+		System.out.println("Red Prob: "+ red.getProb());
+		System.out.println("Green Prob: "+ green.getProb());
+		System.out.println("Blue Prob: "+ blue.getProb());
 		
 	    attrHash tmp = new attrHash();
 	    tmp.addAttr(red);

@@ -29,7 +29,7 @@ public class imgFilter {
 	public BufferedImage getImgToPro() {return imgToPro;}
 	public void setImgToPro(BufferedImage imgToPro) {this.imgToPro = imgToPro;}
 	
-	public attrHash rgbFilter(){//Color must be red, green, or blue
+	public attrHash rgbFilter(double perc){//The number is the percentage of the picture covered
 		attribute red = new attribute();
 		attribute green = new attribute();
 		attribute blue = new attribute();
@@ -38,49 +38,60 @@ public class imgFilter {
 		green.setName("green");
 		blue.setName("blue");
 		
-		int w = imgToPro.getWidth();
-	    int h = imgToPro.getHeight();
-	    int rCount = 0;
-	    int bCount = 0;
-	    int gCount = 0;
+		double w = imgToPro.getWidth();
+	    double h = imgToPro.getHeight();
+	    
+	    double rCount = 0;
+	    double bCount = 0;
+	    double gCount = 0;
 	    
 	    for(int y =0; y < h; y++)
 	    {
-	    	for(int x =0; x < w; x++)
+	    	for(int x = 0; x < w; x += (1/perc))
 	    	{
 	    		int clr = imgToPro.getRGB(x,y); 
 	    		int rVal = (clr & 0x00ff0000) >> 16;
 	    		int gVal = (clr & 0x0000ff00) >> 8;
 	    	    int bVal =  clr & 0x000000ff;
 	    	    
-	    	    System.out.println("clr: " + clr);
-	    	    System.out.println("rVal: " + rVal);
-	    	    System.out.println("gVal: " + gVal);
-	    	    System.out.println("bVal: " + bVal);
-	    	    
-	    	    if(rVal > gVal && rVal > bVal){
-	    	    	System.out.println("rCount added");
-	    	    	rCount++;
+	    	    if(rVal > bVal && rVal > gVal){
+	    	    	
+	    	    	rCount += 1;
 	    	    }
-	    	    else if(bVal > gVal && bVal > rVal){
-	    	    	System.out.println("bCount added");
-	    	    	bCount++;
+	    	    else if(bVal >= gVal && bVal > rVal){
+	    	    	bCount += 1;
 	    	    }
-	    	    else if(gVal > bVal && gVal >rVal){
-	    	    	System.out.println("gCount added");
-	    	    	gCount++;
+	    	    else if(gVal > bVal && gVal > rVal){
+	    	    	gCount += 1;
+	    	    } 
+	    	    else
+	    	    {
+	    	    	
 	    	    }
 	    	}
 	    }
 		
-		int total = h*w;
-		red.setProb(rCount/total);
-		blue.setProb(bCount/total);
-		green.setProb(gCount/total);
+	    double total = (h*w);
+	    if (perc <= .5){
+	    	total *= perc;
+	    }
 		
-		System.out.println("Red Prob: "+ red.getProb());
-		System.out.println("Green Prob: "+ green.getProb());
-		System.out.println("Blue Prob: "+ blue.getProb());
+		double rProb = rCount/total;
+		double gProb = gCount/total;
+		double bProb = bCount/total;
+		
+		red.setProb(rProb);
+		blue.setProb(bProb);
+		green.setProb(gProb);
+		
+		System.out.println("total: " + total);
+		System.out.println("Percent: "+ perc);
+		System.out.println("advacer: "+ (1+ (1/perc)));
+		System.out.println("Red Prob: "+ rProb);
+		System.out.println("Green Prob: "+ gProb);
+		System.out.println("Blue Prob: "+ bProb);
+		
+
 		
 	    attrHash tmp = new attrHash();
 	    tmp.addAttr(red);

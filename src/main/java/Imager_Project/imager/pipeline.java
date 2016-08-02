@@ -48,7 +48,7 @@ public class pipeline {
 		
 		attrHash globalHash = new attrHash();
 		imgFilter pro = new imgFilter(imgToProcess);
-		globalHash.mergeHash(pro.rgbFilter());
+		globalHash.mergeHash(pro.rgbFilter(1));
 		
 //		imgFilter pro = new imgFilter(imgToProcess);
 //		attribute subList = pro.filter();

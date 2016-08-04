@@ -1,4 +1,4 @@
-package Imager_Project.imager;
+package imager.core;
 
 public class attribute {
 	//Variables

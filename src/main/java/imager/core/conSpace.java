@@ -1,4 +1,4 @@
-package Imager_Project.imager;
+package imager.core;
 
 import java.util.ArrayList;
 

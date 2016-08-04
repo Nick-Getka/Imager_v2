@@ -1,4 +1,4 @@
-package Imager_Project.imager;
+package imager.core;
 
 //This class will be a wrapper for the open source Neuroph Neural Net
 public class neuralNet {

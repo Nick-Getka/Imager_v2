@@ -1,4 +1,4 @@
-package Imager_Project.imager;
+package imager.core;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -25,30 +25,15 @@ public class pipeline {
 	
 	public static void main(String args[])
 	{
-		String filePath = null;
-		Scanner reader = new Scanner(System.in);
-		neuralNet net = new neuralNet();
-		conSpace space = new conSpace();
 		
 		
-		System.out.println("Opening Image Pipeline");
-		System.out.println("Please enter the file path to an image:");
-		filePath = reader.nextLine();
-		System.out.println("file: "+ filePath);	
 		
-		filePath = "/home/admin/workspace/imagepro//src/main/resources/testImages/plain.jpg";
-		System.out.println("filePath: "+filePath);
-		BufferedImage imgToProcess = null;
-		try{
-			imgToProcess = ImageIO.read(new File(filePath));
-		}
-		catch (IOException e){
-			System.out.println("An IO Exception was thrown");
-		}
 		
-		attrHash globalHash = new attrHash();
-		imgFilter pro = new imgFilter(imgToProcess);
-		globalHash.mergeHash(pro.rgbFilter(1));
+		
+		
+		
+		
+		
 		
 //		imgFilter pro = new imgFilter(imgToProcess);
 //		attribute subList = pro.filter();
@@ -86,6 +71,6 @@ public class pipeline {
 //			System.out.println("Nothing");
 //		}
 		
-		reader.close();
+//		reader.close();
 	}
 }

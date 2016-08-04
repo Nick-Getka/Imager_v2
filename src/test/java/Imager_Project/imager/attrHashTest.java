@@ -3,6 +3,10 @@ package Imager_Project.imager;
 import java.util.HashMap;
 
 import org.junit.Test;
+
+import imager.core.attrHash;
+import imager.core.attribute;
+
 import static org.junit.Assert.*;
 
 public class attrHashTest{

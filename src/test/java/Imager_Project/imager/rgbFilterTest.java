@@ -10,11 +10,14 @@ import javax.imageio.ImageIO;
 
 import org.junit.Test;
 
+import imager.core.attrHash;
+import imager.pro.imgFilter;
+
 public class rgbFilterTest {
 
 	@Test
 	public void redTest() {
-		String filePath = "C:/Users/shuri/git/Imager_v2/src/main/resources/testImages/red.jpg";
+		String filePath = "src/main/resources/testImages/red.jpg";
 		System.out.println("filePath: "+filePath);
 		BufferedImage testImg = null;
 		try{
@@ -38,7 +41,7 @@ public class rgbFilterTest {
 	
 	@Test
 	public void blueTest() {
-		String filePath = "C:/Users/shuri/git/Imager_v2/src/main/resources/testImages/blue.jpg";
+		String filePath = "src/main/resources/testImages/blue.jpg";
 		System.out.println("filePath: "+filePath);
 		BufferedImage testImg = null;
 		try{
@@ -62,7 +65,7 @@ public class rgbFilterTest {
 	
 	@Test
 	public void grenTest() {
-		String filePath = "C:/Users/shuri/git/Imager_v2/src/main/resources/testImages/green.jpg";
+		String filePath = "src/main/resources/testImages/green.jpg";
 		System.out.println("filePath: "+filePath);
 		BufferedImage testImg = null;
 		try{
@@ -86,7 +89,7 @@ public class rgbFilterTest {
 	
 	@Test
 	public void beachTest() {
-		String filePath = "C:/Users/shuri/git/Imager_v2/src/main/resources/testImages/beach.jpg";
+		String filePath = "src/main/resources/testImages/beach.jpg";
 		System.out.println("filePath: "+filePath);
 		BufferedImage testImg = null;
 		try{

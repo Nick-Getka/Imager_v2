@@ -1,6 +1,9 @@
-package Imager_Project.imager;
+package imager.pro;
 
 import java.awt.image.BufferedImage;
+
+import imager.core.attrHash;
+import imager.core.attribute;
 
 
 

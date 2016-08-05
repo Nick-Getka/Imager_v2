@@ -7,6 +7,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import imager.core.PhotoOut;
+
 public class BlueFilter extends ImgFilter{
 	public BlueFilter() {
 		super();
@@ -41,17 +43,7 @@ public class BlueFilter extends ImgFilter{
 	        }
 	    }
 	    
-	    File outFile = new File("src/main/resources/tmp/blueImage.jpg");
-	    if(outFile.exists()) { 
-	        outFile.delete();
-	        outFile = new File("src/main/resources/tmp/blueImage.jpg");
-	    }
-	    try {
-			ImageIO.write(newImage, "jpg", outFile);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    PhotoOut out = new PhotoOut(newImage, "blue");
 		return newImage;
 	}
 }

@@ -7,6 +7,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import imager.core.PhotoOut;
+
 public class RedFilter extends ImgFilter {
 
 	public RedFilter() {
@@ -43,17 +45,7 @@ public class RedFilter extends ImgFilter {
 	        }
 	    }
 	    
-	    File outFile = new File("src/main/resources/tmp/redImage.jpg");
-	    if(outFile.exists()) { 
-	        outFile.delete();
-	        outFile = new File("src/main/resources/tmp/redImage.jpg");
-	    }
-	    try {
-			ImageIO.write(newImage, "jpg", outFile);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    PhotoOut out = new PhotoOut(newImage, "red");
 		return newImage;
 	}
 }

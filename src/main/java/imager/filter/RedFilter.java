@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import imager.core.PhotoOut;
+import misc.PhotoOut;
 
 public class RedFilter extends ImgFilter {
 
@@ -30,7 +30,6 @@ public class RedFilter extends ImgFilter {
 		BufferedImage newImage = new BufferedImage(width, height, type);
 		
 		int rgb = 0;
-		int redVal = 0;
 		int newPixel =0;
 		
 	    for(int i=0; i<width; i++)
@@ -38,14 +37,13 @@ public class RedFilter extends ImgFilter {
 	        for(int j=0; j<height; j++)
 	        {
 	        	newPixel = 0;
-	        	redVal = 0;
 	        	rgb = getImg().getRGB(i,j);
 	        	newPixel = newPixel | (rgb >>16 & 0xff) <<16; 
 	        	newImage.setRGB(i, j, newPixel);
 	        }
 	    }
 	    
-	    PhotoOut out = new PhotoOut(newImage, "red");
+	    //PhotoOut out = new PhotoOut(newImage, "red");
 		return newImage;
 	}
 }

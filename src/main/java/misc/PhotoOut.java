@@ -1,4 +1,4 @@
-package imager.core;
+package misc;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import imager.core.PhotoOut;
+import misc.PhotoOut;
 
 public class BlueFilter extends ImgFilter{
 	public BlueFilter() {
@@ -43,7 +43,7 @@ public class BlueFilter extends ImgFilter{
 	        }
 	    }
 	    
-	    PhotoOut out = new PhotoOut(newImage, "blue");
+	    //PhotoOut out = new PhotoOut(newImage, "blue");
 		return newImage;
 	}
 }

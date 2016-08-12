@@ -3,7 +3,7 @@ package imager.filter;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import imager.core.PhotoOut;
+import misc.PhotoOut;
 
 public class LowResFilter extends ImgFilter{
 
@@ -27,7 +27,7 @@ public class LowResFilter extends ImgFilter{
 		graph.drawImage(getImg(), 0, 0, sWidth, sHeight, null);
 		
 		graph.dispose();
-		PhotoOut out = new PhotoOut(newImg, "lowRes");
+		//PhotoOut out = new PhotoOut(newImg, "lowRes");
 		return newImg;
 	}
 	public BufferedImage filter(int scale){
@@ -40,7 +40,7 @@ public class LowResFilter extends ImgFilter{
 		
 		graph.dispose();
 		
-		PhotoOut out = new PhotoOut(newImg, "lowRes");
+		//PhotoOut out = new PhotoOut(newImg, "lowRes");
 		return newImg;
 	}
 }

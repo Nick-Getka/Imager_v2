@@ -1,9 +1,7 @@
 package imager.pro;
 
 import java.awt.image.BufferedImage;
-
-import imager.core.attrHash;
-import imager.core.attribute;
+import java.util.HashMap;
 
 
 
@@ -24,14 +22,8 @@ public class RGBPro extends ImgPro {
 		super(img);
 	}
 	
-	public attrHash pro(double perc){//The number is the percentage of the picture covered
-		attribute red = new attribute();
-		attribute green = new attribute();
-		attribute blue = new attribute();
-		
-		red.setName("red");
-		green.setName("green");
-		blue.setName("blue");
+	public HashMap<String, Double> pro(){//The number is the percentage of the picture covered
+		HashMap<String, Double> results = new HashMap<String, Double>();
 		
 		double w = getImg().getWidth();
 	    double h = getImg().getHeight();
@@ -42,7 +34,7 @@ public class RGBPro extends ImgPro {
 	    
 	    for(int y =0; y < h; y++)
 	    {
-	    	for(int x = 0; x < w; x += (1/perc))
+	    	for(int x = 0; x < w; x++)
 	    	{
 	    		int clr = getImg().getRGB(x,y); 
 	    		int rVal = (clr & 0x00ff0000) >> 16;
@@ -66,23 +58,15 @@ public class RGBPro extends ImgPro {
 	    	}
 	    }
 		
-	    double total = (h*w);
-	    if (perc <= .5){
-	    	total *= perc;
-	    }
-		
+	    double total = (h*w);		
 		double rProb = rCount/total;
 		double gProb = gCount/total;
 		double bProb = bCount/total;
 		
-		red.setProb(rProb);
-		blue.setProb(bProb);
-		green.setProb(gProb);		
+		results.put("red", rProb);
+		results.put("blue", bProb);
+		results.put("green", gProb);
 		
-	    attrHash tmp = new attrHash();
-	    tmp.addAttr(red);
-	    tmp.addAttr(green);
-	    tmp.addAttr(blue);
-		return tmp;
+		return results;
 	}
 }

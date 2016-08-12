@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import imager.core.PhotoOut;
+import misc.PhotoOut;
 
 public class GreenFilter extends ImgFilter{
 	public GreenFilter() {
@@ -45,7 +45,7 @@ public class GreenFilter extends ImgFilter{
 	        }
 	    }
 	    
-	    PhotoOut out = new PhotoOut(newImage, "green");
+	    //PhotoOut out = new PhotoOut(newImage, "green");
 		return newImage;
 	}
 }

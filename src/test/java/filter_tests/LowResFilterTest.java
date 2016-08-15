@@ -1,4 +1,4 @@
-package Imager_Project.imager;
+package filter_tests;
 
 import static org.junit.Assert.*;
 

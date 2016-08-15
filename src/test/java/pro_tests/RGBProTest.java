@@ -1,4 +1,4 @@
-package Imager_Project.imager;
+package pro_tests;
 
 import static org.junit.Assert.*;
 
@@ -29,11 +29,10 @@ public class RGBProTest {
 		}
 
 		RGBPro testFilter = new RGBPro(testImg);
-		HashMap<String, Double> testHash = testFilter.pro();
 
-		double bAtt = testHash.get("blue");
-		double gAtt = testHash.get("green");
-		double rAtt = testHash.get("red");
+		double bAtt = testFilter.getBluePerc();
+		double gAtt = testFilter.getGreenPerc();
+		double rAtt = testFilter.getRedPerc();
 
 		assertEquals(0, gAtt, 0);
 		assertEquals(0, bAtt, 0);
@@ -54,11 +53,10 @@ public class RGBProTest {
 		}
 		
 		RGBPro testFilter = new RGBPro(testImg);
-		HashMap<String, Double> testHash = testFilter.pro();
 
-		double bAtt = testHash.get("blue");
-		double gAtt = testHash.get("green");
-		double rAtt = testHash.get("red");
+		double bAtt = testFilter.getBluePerc();
+		double gAtt = testFilter.getGreenPerc();
+		double rAtt = testFilter.getRedPerc();
 		
 		assertEquals(0, gAtt, 0);
 		assertEquals(0, rAtt, 0);
@@ -78,12 +76,10 @@ public class RGBProTest {
 		}
 		
 		RGBPro testFilter = new RGBPro(testImg);
-		HashMap<String, Double> testHash = testFilter.pro();
 
-		double bAtt = testHash.get("blue");
-		double gAtt = testHash.get("green");
-		double rAtt = testHash.get("red");
-		
+		double bAtt = testFilter.getBluePerc();
+		double gAtt = testFilter.getGreenPerc();
+		double rAtt = testFilter.getRedPerc();
 		assertEquals(0, rAtt, 0);
 		assertEquals(0, bAtt, 0);
 		assertTrue(gAtt == 1.0);		
@@ -102,12 +98,12 @@ public class RGBProTest {
 			System.out.println("An IO Exception was thrown");
 		}
 		
+		
 		RGBPro testFilter = new RGBPro(testImg);
-		HashMap<String, Double> testHash = testFilter.pro();
 
-		double bAtt = testHash.get("blue");
-		double gAtt = testHash.get("green");
-		double rAtt = testHash.get("red");
+		double bAtt = testFilter.getBluePerc();
+		double gAtt = testFilter.getGreenPerc();
+		double rAtt = testFilter.getRedPerc();
 		
 		assertEquals(.2, rAtt, .09);
 		assertEquals(.2, gAtt, .09);

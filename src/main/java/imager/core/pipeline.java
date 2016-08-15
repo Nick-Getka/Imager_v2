@@ -1,6 +1,21 @@
 package imager.core;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
+
+import javax.imageio.ImageIO;
+
+import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.data.DataSet;
+import org.neuroph.nnet.MultiLayerPerceptron;
+import org.neuroph.nnet.learning.BackPropagation;
+
+import imager.filter.BlueFilter;
+import imager.filter.LowResFilter;
+import imager.pro.RGBPro;
+import neuralnet.NeuralNet;
 
 //The pipeline will conduct the initial image processing 
 //Images will be fed in a passed first to the Image Filters which will return the
@@ -18,7 +33,7 @@ public class pipeline {
 	//The console
 	//test images will be stored in /src/main/resources/testImages/*
 
-	public static void main(String args[])
+	public void main(String args[])
 	{
 		char userChoice = 'x';
 		Scanner reader = new Scanner(System.in);
@@ -42,14 +57,67 @@ public class pipeline {
 		reader.close();
 	}
 	
-	public static void training(){
+	public void training(){
 		System.out.println("Training\n");
+		
 	}
 	
-	public static void testing(){
+	public  void testing(){
 		System.out.println("Testing\n");
+		File nNet = new File("src/main/resources/nnets/RGBNNet2.nnet");
+		NeuralNetwork rgbNet = NeuralNetwork.createFromFile(nNet);
+		
+		String filePath = "src/main/resources/testImages/plain.jpg";
+		System.out.println("filePath: "+filePath);
+		BufferedImage testImg = null;
+		try{
+			testImg = ImageIO.read(new File(filePath));
+		}
+		catch (IOException e){
+			System.out.println("An IO Exception was thrown");
+		}
+		
+		LowResFilter low = new LowResFilter(testImg);
+		RGBPro rgb = new RGBPro(low.filter());
+		
+		double data[] = { rgb.getBluePerc(), rgb.getGreenPerc(), rgb.getRedPerc() };
+		
+		rgbNet.setInput(data);
+		rgbNet.calculate();
+		
+		System.out.println("Output: "+ rgbNet.getOutput().toString());
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
 //import java.awt.image.BufferedImage;
 //import java.io.File;

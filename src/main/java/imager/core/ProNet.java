@@ -22,8 +22,9 @@ public class ProNet {
 
 	public HashMap<String, Double> pro(){
 		RGBPro rgb = new RGBPro(imgMap.get("lowImg"));
-		imgData.putAll(rgb.pro());
-		
+		imgData.put("blue", rgb.getBluePerc() );
+		imgData.put("green", rgb.getGreenPerc());
+		imgData.put("red", rgb.getRedPerc());	
 		
 		return imgData;
 	}

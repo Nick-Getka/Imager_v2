@@ -1,4 +1,4 @@
-package Imager_Project.imager;
+package core_tests;
 
 import static org.junit.Assert.*;
 

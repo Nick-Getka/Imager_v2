@@ -1,4 +1,4 @@
-package Imager_Project.imager;
+package filter_tests;
 
 import static org.junit.Assert.*;
 
@@ -10,9 +10,9 @@ import javax.imageio.ImageIO;
 
 import org.junit.Test;
 
-import imager.filter.BlueFilter;
+import imager.filter.GreenFilter;
 
-public class BlueFilterTest {
+public class GreenFilterTest {
 
 	@Test
 	public void test() {
@@ -26,32 +26,32 @@ public class BlueFilterTest {
 			System.out.println("An IO Exception was thrown");
 		}
 		
-		BlueFilter blue = new BlueFilter(testImg);
+		GreenFilter green = new GreenFilter(testImg);
 		
-		BufferedImage blueTestImg = blue.filter();
+		BufferedImage greenTestImg = green.filter();
 		
 	    int iRed=0;
 	    int iGreen=0;
 	    int iBlue=0;
 	    int rgb=0;
 		
-		for(int x = 0; x < blueTestImg.getWidth(); x++)
+		for(int x = 0; x < greenTestImg.getWidth(); x++)
 		{
-			for(int y = 0; y < blueTestImg.getHeight(); y++)
+			for(int y = 0; y < greenTestImg.getHeight(); y++)
 			{
 			    iRed=0;
 			    iGreen=0;
 			    iBlue=0;
 			    rgb=0;
 			    
-			    rgb = blueTestImg.getRGB(x,y);
+			    rgb = greenTestImg.getRGB(x,y);
 			    iRed = rgb >>16 & 0xff;
 			    iGreen = rgb>>8 & 0xff;
 			    iBlue = rgb & 0xff;
 			    
-			    assertEquals(0,iGreen,0);
+			    assertEquals(0,iBlue,0);
 			    assertEquals(0,iRed,0);
-			    assertTrue((iBlue >= 0));
+			    assertTrue((iGreen >= 0));
 			}
 		}
 	}
